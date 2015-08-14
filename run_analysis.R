@@ -18,25 +18,22 @@ unzip(zipfile = "data.zip")
 # X data correspond to features data
 # subject data correspond to the people
 
-dataActivity_test <- read.table("./UCI HAR Dataset/test/y_test.txt",header=FALSE)
-dataActivity_train <- read.table("./UCI HAR Dataset/train/y_train.txt", header = FALSE)
+dataActivityTest <- read.table("./UCI HAR Dataset/test/y_test.txt",header=FALSE)
+dataActivityTrain <- read.table("./UCI HAR Dataset/train/y_train.txt", header = FALSE)
 
-dataSubject_test <- read.table("./UCI HAR Dataset/test/subject_test.txt", header = FALSE)
-dataSubject_train <- read.table("./UCI HAR Dataset/train/subject_train.txt", header = FALSE)
+dataSubjectTest <- read.table("./UCI HAR Dataset/test/subject_test.txt", header = FALSE)
+dataSubjectTrain <- read.table("./UCI HAR Dataset/train/subject_train.txt", header = FALSE)
 
-dataFeatures_test <- read.table("./UCI HAR Dataset/test/X_test.txt", header = FALSE)
-dataFeatures_train <- read.table("./UCI HAR Dataset/train/X_train.txt", header = FALSE)
+dataFeaturesTest <- read.table("./UCI HAR Dataset/test/X_test.txt", header = FALSE)
+dataFeaturesTrain <- read.table("./UCI HAR Dataset/train/X_train.txt", header = FALSE)
 
 # Merge the test and train datasets of activity, subject and features to form 3 datasets of
 # activity, subject and features
 
-dataActivity <- rbind(dataActivity_train,dataActivity_test)
-dataSubject <- rbind(dataSubject_train,dataSubject_test)
-dataFeatures <- rbind(dataFeatures_train,dataFeatures_test)
+dataActivity <- rbind(dataActivityTrain,dataActivityTest)
+dataSubject <- rbind(dataSubjectTrain,dataSubjectTest)
+dataFeatures <- rbind(dataFeaturesTrain,dataFeaturesTest)
 
-# Extract the activity labels(SITTING, WALKING,...) from the activity labels dataset
-
-activity_labels <- read.table("./UCI HAR Dataset/activity_labels.txt",header = FALSE,stringsAsFactors = TRUE)
 
 # Extract the feature names of 561 variables from the text file
 
@@ -80,10 +77,15 @@ names(reqData) <- gsub("Acc","Accelerometer",names(reqData))
 names(reqData) <- gsub("Gyro","Gyrometer",names(reqData))
 names(reqData) <- gsub("Mag","Magnitude",names(reqData))
 
+# Extract the activity labels(SITTING, WALKING,...) from the activity labels dataset
+
+activityLabels <- read.table("./UCI HAR Dataset/activity_labels.txt",header = FALSE,stringsAsFactors = TRUE)
+
+
 # subject and activity columns as factors
 # activity columns provided with appropriate labels from the activity labels info dataset
 
-reqData$activity <- factor(reqData$activity,levels = activity_labels$V1, labels = activity_labels$V2)
+reqData$activity <- factor(reqData$activity,levels = activityLabels$V1, labels = activityLabels$V2)
 reqData$subject <- factor(reqData$subject)
 
 
@@ -93,5 +95,5 @@ opData <- aggregate(.~activity+subject,reqData,FUN = mean)
 
 # Writing the obtained tidy data set to a text file
 
-write.table(opData,file = "tidyData.txt")
+write.table(opData,file = "tidyData.txt",row.names = FALSE, quote = FALSE)
 
