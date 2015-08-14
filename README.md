@@ -29,9 +29,17 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 The script run_analysis.R does the following:
 
 1) Download the data from the url provided and unzip it.
+
 2) Merge the training and the test sets of subject, activity and feature valuess to create one data set.
+
 3) Extracts only the measurements on the mean and standard deviation for each measurement(66 variables, not accounting for mean variables in angle measurements). 
+
 4) Load the activity label info.
+
 5) Activity names in the dataset are named, as character factors based on the activity label info. (eg:- WALKING, STANDING,. etc)
+
 6) The variable names are renamed in detail, ie, prefix t is replaced by time and f by Frequency. Detailed explanation is given in CodeBook.md. 
+
 7) From the data set obtained by the above 4 steps, a second, independent tidy data set is created with the average of each variable for each activity and each subject.
+
+
