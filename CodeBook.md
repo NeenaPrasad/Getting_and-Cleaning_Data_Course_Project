@@ -188,6 +188,20 @@ Of the 68 variables __*subject*__ and __*activity*__ are factor variables.
 __activity_labels__ stores the activity labels for the activity column, ie, **LAYING, SITTING, STANDING, WALKING WALKING_DOWNSTAIRS  and WALKING_UPSTAIRS** from the text file activity_labels.txt. The activity column of the **reqData** is then factorised by providing character labels from activity _labels.
 The subject column in the **reqData** is also factorised.
 
+#### Activity Labels 
+
+1 -     WALKING
+
+2 -     WALKING_UPSTAIRS
+
+3 -     WALKING_DOWNSTAIRS
+
+4 -     SITTING
+
+5 -     STANDING
+
+6 -     LAYING
+
 #### 8. Tidy data set
 
 Aggregate function is used to find the average of the feature variables with __*subject*__ and __*activity*__ columns as the grouping elements(factor variables). It has 68 columns and 180 rows.
