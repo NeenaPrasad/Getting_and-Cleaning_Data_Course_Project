@@ -56,17 +56,17 @@ Steps taken to tidy up the data and the variables involved are recorded in detai
 
 The following variables are created to stire data from the following text files:
 
-dataActivity_test       <-      test/y_test.txt"
+dataActivityTest       <-      test/y_test.txt"
 
-dataActivity_train      <-      train/y_train.txt"
+dataActivityTrain      <-      train/y_train.txt"
 
-dataSubject_test        <-      test/subject_test.txt"
+dataSubjectTest        <-      test/subject_test.txt"
 
-dataSubject_train       <-      train/subject_train.txt"
+dataSubjectTrain       <-      train/subject_train.txt"
 
-dataFeatures_test       <-      test/X_test.txt"
+dataFeaturesTest       <-      test/X_test.txt"
 
-dataFeatures_train      <-      train/X_train.txt"
+dataFeaturesTrain      <-      train/X_train.txt"
 
 
 #### 2. Merging datasets
@@ -185,7 +185,7 @@ Of the 68 variables __*subject*__ and __*activity*__ are factor variables.
 
 #### 7. Relabelling activity column values
 
-__activity_labels__ stores the activity labels for the activity column, ie, **LAYING, SITTING, STANDING, WALKING WALKING_DOWNSTAIRS  and WALKING_UPSTAIRS** from the text file activity_labels.txt. The activity column of the **reqData** is then factorised by providing character labels from activity _labels.
+__activityLabels__ stores the activity labels for the activity column, ie, **LAYING, SITTING, STANDING, WALKING WALKING_DOWNSTAIRS  and WALKING_UPSTAIRS** from the text file activity_labels.txt. The activity column of the **reqData** is then factorised by providing character labels from activityLabels.
 The subject column in the **reqData** is also factorised.
 
 #### Activity Labels 
